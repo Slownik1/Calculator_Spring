@@ -14,4 +14,28 @@ public class CalculatorControler {
         return number1+number2;
     }
 
+    @GetMapping("/minus")
+    @ResponseBody
+    public Integer minus(@RequestParam("number1") int number1, @RequestParam("number2") int number2){
+        return number1-number2;
+    }
+
+    @GetMapping("/devide")
+    @ResponseBody
+    public Integer devide(@RequestParam("number1") int number1, @RequestParam("number2") int number2){
+        if(number1 == 0){
+            throw new RuntimeException("CAN NOT DEVIDE BY ZERO");
+        }
+        else{
+            return number1/number2;
+        }
+    }
+
+    @GetMapping("/multiply")
+    @ResponseBody
+    public Integer multiply(@RequestParam("number1") int number1, @RequestParam("number2") int number2){
+        return number1*number2;
+    }
+
+
 }
